@@ -1,4 +1,11 @@
 # 네트워크를 통해 서비스에 파드 연결하기
+
+## 함께 나눌 질문
+1. 3장 본문에서는 LoadBalancer와 NodePort를 외부 트래픽을 파드에 연결하는 방법으로 소개하고 있다.
+   듣고 있는 인강에서도 NodePort로 실습을 진행하고 있다보니, 실제 프로덕션 환경에서 외부 접근을 관리할 때 Ingress를 더 일반적으로 사용하는 이유는 무엇이며, LoadBalancer, NodePort, Ingress 각각 차이가 무엇이고,
+   어떤 상황에서 각 방식을 선택하는 것이 가장 적절할 지 궁금합니다.
+2. 서비스와 파드는 label selector를 통해 느슨하게 연결되는 아키텍쳐를 갖고 있는데, 이런 느슨한 연결이 가지는 장단점이 궁금합니다.
+
 ### ✅ 서비스(Service)란?
 
 서비스(Service) : 외부로부터 요청을 받는 역할 / 외부로부터 들어오는 트래픽을 받아, 파드에 균등하게 분배해주는 로드밸런서 역할을 하는 기능
@@ -467,4 +474,3 @@ service "sleep-2" deleted
 NAME                 TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 service/kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   7s
 ```
-
