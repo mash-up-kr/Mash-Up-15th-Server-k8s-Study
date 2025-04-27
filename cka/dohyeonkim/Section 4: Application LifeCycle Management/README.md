@@ -1,1 +1,1 @@
-[Core Concepts 정리](https://k-diger.github.io/posts/GoToCKA-3/)
+[Application LifeCycle Management 정리](https://k-diger.github.io/posts/GoToCKA-3/)

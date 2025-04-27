@@ -1,1 +1,1 @@
-[Core Concepts 정리](https://k-diger.github.io/posts/GoToCKA-2/)
+[Scheduling 정리](https://k-diger.github.io/posts/GoToCKA-2/)
