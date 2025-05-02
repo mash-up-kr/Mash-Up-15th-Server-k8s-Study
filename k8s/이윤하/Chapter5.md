@@ -36,23 +36,23 @@
 이런 특성을 활용해 공디렉토리를 캐싱의 목적으로도 사용할 수 있다.
 ## 볼륨과 마운트로 노드에 데이터 저장하기
 공디렉토리 볼륨보다 더 오래 유지하기 위해 캐시를 노드에 저장하는 방법이 있다.
-파드에서 해당 노드의 디렉토리에 접근하ㅣㄱ 위해 노드의 디스크를 가르키는 볼륨인 **호스트경로**볼륨을 사용할 수 있다.
+파드에서 해당 노드의 디렉토리에 접근하기 위해 노드의 디스크를 가르키는 볼륨인 **호스트경로**볼륨을 사용할 수 있다.
 컨테이너가 마운트 경로 디렉터리에 데이터를 기록하면, 실제 데이터는 노드의 디스크에 기록된다.
 ### 문제점
 이 경우 노드가 2개 이상인 클러스터에서는 문제가 생긴다. 그리고 보안 취약점이 있다. 애플리케이션이 침투당하면 노드 디스크 전체가 장악당할 수 있다.
 ```yaml
 spec:
-containers:
-- name: sleep
-image: kiamol/ch03-sleep
-volumeMounts:
-- name: node-root
-mountPath: /node-root
-volumes:
-- name: node-root
-hostPath:
-path: / # 노드 파일 시스템의 루트 디렉터리
-type: Directory  # 경로에 디렉터리가 존재해야한다
+    containers:
+        - name: sleep
+        image: kiamol/ch03-sleep
+        volumeMounts:
+            - name: node-root
+            mountPath: /node-root
+    volumes:
+        - name: node-root
+        hostPath:
+        path: / # 노드 파일 시스템의 루트 디렉터리
+        type: Directory  # 경로에 디렉터리가 존재해야한다
 ```
 hostpath를 루트 디렉토리로 한 경우 누구든지 이 파드가 동작 중인 노드의 파일 시스템에 접근할 수 있다.
 안전하게 정의된 호스트경로 볼륨의 예시를 보자
